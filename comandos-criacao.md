@@ -48,4 +48,3 @@ FOREIGN KEY(fabricante_id) REFERENCES fabricantes(id)
 
 ```
 
-### 
