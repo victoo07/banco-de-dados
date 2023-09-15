@@ -39,6 +39,9 @@ VALUES('Xbox', 'Console de ultima geração', 2500.00, 6, 8);
 INSERT INTO produtos (nome, descricao, preco, quantidade, fabricante_id)
 VALUES('Ultrabook', 'AMD Ryzen 5 16Gb RAM', 4500.99, 3, 7);
 
+INSERT INTO produtos (nome, descricao, preco, quantidade, fabricante_id)
+VALUES('Iphone 15', 'Celular da ultima geração', 6000.00, 5, 3);
+
 ```
 
 ## Insert
