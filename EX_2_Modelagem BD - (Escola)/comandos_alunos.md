@@ -208,7 +208,7 @@ INSERT INTO alunos (nome, data_de_nascimento,primeira_nota, segunda_nota, curso_
 
 -- 5ª Digitação (SQL para criar a consulta acima)
 
-SELECT name, data_de_nascimento
+SELECT nome, data_de_nascimento
 FROM alunos
 WHERE data_de_nascimento < '2009-01-01';
 
@@ -230,7 +230,7 @@ SELECT nome, primeira_nota, segunda_nota, ROUND(AVG((primeira_nota + segunda_not
 ```sql
 
 -- 7ª Digitação (SQL para criar a consulta acima)
-
+SELECT titulo,carga_horaria, (carga_horaria * 0.25) AS "LIMITE DE FALTAS"  FROM cursos;   
 ```
 ![Relatório 3](resultados_alunos/relatorio3.jpg)
 
@@ -247,8 +247,10 @@ SELECT nome, area_de_atuacao FROM professores WHERE area_de_atuacao LIKE "%desen
 
 ### 5) Faça uma consulta que mostre a quantidade de professores por área de desenvolvimento.
 ```sql
+SELECT COUNT(area_de_atuacao) AS "Quantidade de professores"
+FROM professores
+WHERE area_de_atuacao LIKE "%desenvolvimento%";
 
--- 9ª Digitação (SQL para criar a consulta acima)
 
 ```
 ![Relatório 5](resultados_alunos/relatorio5.jpg)
@@ -268,7 +270,7 @@ SELECT alunos.nome, cursos.titulo, cursos.carga_horaria FROM alunos INNER JOIN c
 ```sql
 
 -- 11ª Digitação (SQL para criar a consulta acima)
-
+SELECT professores.nome, cursos.titulo  FROM professores INNER JOIN cursos ON professores.curso_id = cursos.id;
 ```
 ![Relatório 7](resultados_alunos/relatorio7.jpg)
 
@@ -293,7 +295,13 @@ SELECT alunos.nome, cursos.titulo, professores.nome AS "Nome professor" FROM alu
 ### 9) Faça uma consulta que mostre a quantidade de alunos que cada curso possui. Classifique os resultados em ordem descrecente de acordo com a quantidade de alunos.
 ```sql
 
--- 13ª Digitação (SQL para criar a consulta acima)
+SELECT cursos.titulo AS "Materias",
+COUNT(alunos.curso_id) AS "Quantidade"
+FROM alunos
+INNER JOIN cursos
+ON alunos.curso_id = cursos.id
+GROUP BY Materias
+ORDER BY COUNT(alunos.curso_id) DESC;
 
 ```
 ![Relatório 9](resultados_alunos/relatorio9.jpg)
